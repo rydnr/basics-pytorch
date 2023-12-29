@@ -32,7 +32,7 @@ pythoneda-shared-pythoneda-banner = "^@pythonedaSharedPythonedaBanner@"
 pythoneda-shared-pythoneda-domain = "^@pythonedaSharedPythonedaDomain@"
 torch = "^@torch@"
 torchaudio = "^@torchaudio@"
-torchvision = "^@torchvision@"
+# torchvision = "^@torchvision@"
 
 [build-system]
 requires = ["poetry-core"]

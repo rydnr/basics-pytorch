@@ -55,7 +55,7 @@
       let
         org = "rydnr";
         repo = "basics-pytorch";
-        version = "0.0.1";
+        version = "0.0.2";
         pname = "${org}-${repo}";
         pythonpackage = "rydnr.basics.pytorch";
         package = builtins.replaceStrings [ "." ] [ "/" ] pythonpackage;
