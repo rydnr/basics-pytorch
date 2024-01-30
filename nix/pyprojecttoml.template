@@ -27,12 +27,12 @@ packages = [{include = "@package@"}]
 
 [tool.poetry.dependencies]
 python = "^@pythonMajorMinorVersion@"
-pythoneda-shared-pythoneda-application = "^@pythonedaSharedPythonedaApplication@"
-pythoneda-shared-pythoneda-banner = "^@pythonedaSharedPythonedaBanner@"
-pythoneda-shared-pythoneda-domain = "^@pythonedaSharedPythonedaDomain@"
-torch = "^@torch@"
-torchaudio = "^@torchaudio@"
-# torchvision = "^@torchvision@"
+@pythonedaSharedApplication@ = "^@pythonedaSharedApplicationVersion@"
+@pythonedaSharedBanner@ = "^@pythonedaSharedBannerVersion@"
+@pythonedaSharedDomain@ = "^@pythonedaSharedDomainVersion@"
+@torch@ = "^@torchVersion@"
+# @torchaudio@ = "^@torchaudioVersion@"
+@torchvision@ = "^0.15.0"
 
 [build-system]
 requires = ["poetry-core"]

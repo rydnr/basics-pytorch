@@ -1,3 +1,4 @@
+# vim: set fileencoding=utf-8
 """
 rydnr/basics/pytorch/application/basics_pytorch_app.py
 
@@ -19,7 +20,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 import asyncio
-from pythoneda.application import PythonEDA
+from pythoneda.shared.application import PythonEDA
 
 
 class BasicsPytorchApp(PythonEDA):
@@ -54,5 +55,14 @@ class BasicsPytorchApp(PythonEDA):
 
 if __name__ == "__main__":
     asyncio.run(
-        NixFlakeToGraphviz.main("rydnr.basics.pytorch.application.BasicsPytorchApp")
+        BasicsPytorchApp.main("rydnr.basics.pytorch.application.BasicsPytorchApp")
     )
+
+# vim: syntax=python ts=4 sw=4 sts=4 tw=79 sr et
+# Local Variables:
+# mode: python
+# python-indent-offset: 4
+# tab-width: 4
+# indent-tabs-mode: nil
+# fill-column: 79
+# End:

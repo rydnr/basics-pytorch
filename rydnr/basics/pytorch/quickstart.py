@@ -20,16 +20,20 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 from pythoneda.shared import BaseObject
 import torch
+from torch import nn
+from torch.utils.data import DataLoader
+from torchvision import datasets
+from torchvision.transforms import ToTensor
 
 
-class Installed(BaseObject):
+class Quickstart(BaseObject):
     """
-    Simple smoke test to check PyTorch is available.
+    Shows common tasks.
 
-    Class name: Installed
+    Class name: Quickstart
 
     Responsibilities:
-        - Runs some smoke test.
+        - Shows common tasks.
 
     Collaborators:
         - None
@@ -40,9 +44,15 @@ class Installed(BaseObject):
         Creates a new Installed instance.
         """
         super().__init__()
-        x = torch.rand(5, 3)
-        print(x)
+
+    def download_training_data_from_open_datasets(self):
+        training_data = datasets.FashionMNIST(
+            root="data",
+            train=True,
+            download=True,
+            transform=ToTensor(),
+        )
 
 
 if __name__ == "__main__":
-    Installed()
+    Quickstart().download_training_data_from_open_datasets()
