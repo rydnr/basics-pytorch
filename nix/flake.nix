@@ -110,12 +110,8 @@
               desc = description;
               inherit homepage package pname pythonMajorMinorVersion
                 pythonpackage version;
-              torch = rydnr-nix-flakes-pytorch.pname;
-              torchVersion = rydnr-nix-flakes-pytorch.version;
-              torchaudio = rydnr-nix-flakes-torchaudio.pname;
-              torchaudioVersion = rydnr-nix-flakes-torchaudio.version;
-              torchvision = rydnr-nix-flakes-torchvision.pname;
-              torchvisionVersion = rydnr-nix-flakes-torchvision.version;
+              matplotlib = python.pkgs.matplotlib.pname;
+              matplotlibVersion = python.pkgs.matplotlib.version;
               pythonedaSharedApplication = pythoneda-shared-application.pname;
               pythonedaSharedApplicationVersion =
                 pythoneda-shared-application.version;
@@ -124,6 +120,12 @@
               pythonedaSharedDomain = pythoneda-shared-domain.pname;
               pythonedaSharedDomainVersion = pythoneda-shared-domain.version;
               src = pyprojectTemplateFile;
+              torch = rydnr-nix-flakes-pytorch.pname;
+              torchVersion = rydnr-nix-flakes-pytorch.version;
+              torchaudio = rydnr-nix-flakes-torchaudio.pname;
+              torchaudioVersion = rydnr-nix-flakes-torchaudio.version;
+              torchvision = rydnr-nix-flakes-torchvision.pname;
+              torchvisionVersion = rydnr-nix-flakes-torchvision.version;
             };
             bannerTemplateFile = ../templates/banner.py.template;
             bannerTemplate = pkgs.substituteAll {
@@ -158,6 +160,7 @@
 
             nativeBuildInputs = with python.pkgs; [ pip poetry-core ];
             propagatedBuildInputs = with python.pkgs; [
+              matplotlib
               pythoneda-shared-application
               pythoneda-shared-banner
               pythoneda-shared-domain

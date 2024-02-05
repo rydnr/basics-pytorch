@@ -1,9 +1,9 @@
 """
-rydnr/basics/pytorch/installed.py
+rydnr/basics/pytorch/quickstart.py
 
-This file defines the Installed class.
+This file defines the Quickstart class.
 
-Copyright (C) 2023-today rydnr's https://github.com/rydnr/basics-pytorch
+Copyright (C) 2024-today rydnr's https://github.com/rydnr/basics-pytorch
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -30,7 +30,8 @@ from torchvision.transforms import ToTensor
 
 class Quickstart(BaseObject):
     """
-    Shows common tasks.
+    Notebook for the Quickstart chapter in PyTorch tutorial:
+    https://pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html
 
     Class name: Quickstart
 

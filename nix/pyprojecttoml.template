@@ -27,6 +27,7 @@ packages = [{include = "@package@"}]
 
 [tool.poetry.dependencies]
 python = "^@pythonMajorMinorVersion@"
+@matplotlib@ = "^@matplotlibVersion@"
 @pythonedaSharedApplication@ = "^@pythonedaSharedApplicationVersion@"
 @pythonedaSharedBanner@ = "^@pythonedaSharedBannerVersion@"
 @pythonedaSharedDomain@ = "^@pythonedaSharedDomainVersion@"
