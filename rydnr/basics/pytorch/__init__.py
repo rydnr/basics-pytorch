@@ -23,6 +23,6 @@ __path__ = __import__("pkgutil").extend_path(__path__, __name__)
 from .custom_image_dataset import CustomImageDataset
 from .data import Data
 from .installed import Installed
-from .quickstart import Quickstart
 from .quickstart_neural_network import QuickstartNeuralNetwork
+from .quickstart import Quickstart
 from .tensors import Tensors

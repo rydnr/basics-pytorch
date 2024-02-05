@@ -26,7 +26,7 @@ import torch
 class Tensors(BaseObject):
     """
     Notebook for the Tensors chapter in PyTorch tutorial:
-    https://pytorch.org/tutorials/beginner/basics/tensorqs_tutorial.html
+    https://pytorch.org/tutorials/beginner/basics/tensors_tutorial.html
 
     Class name: Tensors
 

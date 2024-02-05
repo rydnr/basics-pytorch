@@ -42,7 +42,9 @@ class CustomImageDataset(Dataset):
         - None
     """
 
-def __init__(self, annotations_file, img_dir, transform=None, target_transform=None):
+    def __init__(
+        self, annotations_file, img_dir, transform=None, target_transform=None
+    ):
         """
         Creates a new CustomImageDataset instance.
         """
@@ -62,9 +64,7 @@ def __init__(self, annotations_file, img_dir, transform=None, target_transform=N
             image = self.transform(image)
         if self.target_transform:
             label = self.target_transform(label)
-        return image, label    def __init__(self):
-        super().__init__()
-
+        return image, label
 
 
 # vim: syntax=python ts=4 sw=4 sts=4 tw=79 sr et
