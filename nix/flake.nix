@@ -159,8 +159,10 @@
               inherit homepage maintainers org python repo version;
               pescio_space = space;
               python_version = pythonMajorMinorVersion;
-              pythoneda_shared_banner = pythoneda-shared-pythonlang-banner;
-              pythoneda_shared_domain = pythoneda-shared-pythonlang-domain;
+              pythoneda_shared_pythonlang_banner =
+                pythoneda-shared-pythonlang-banner;
+              pythoneda_shared_pythonlang_domain =
+                pythoneda-shared-pythonlang-domain;
               src = entrypointTemplateFile;
             };
             src = ../.;

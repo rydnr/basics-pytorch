@@ -26,3 +26,4 @@ from .installed import Installed
 from .quickstart_neural_network import QuickstartNeuralNetwork
 from .quickstart import Quickstart
 from .tensors import Tensors
+from .autograd import Autograd

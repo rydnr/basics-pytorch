@@ -5,3 +5,7 @@ lib/
 lib64
 pyvenv.cfg
 result
+nix/notes.org
+notes.org
+quickstart.pth
+data/
