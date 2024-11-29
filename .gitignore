@@ -9,3 +9,6 @@ nix/notes.org
 notes.org
 quickstart.pth
 data/
+deps.txt
+deps.dot
+deps.png

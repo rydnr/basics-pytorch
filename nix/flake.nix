@@ -17,10 +17,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 {
-  description = "A repository to follow PyTorch basic tutorials";
+  description = "Nix flake for https://github.com/rydnr/basics-pytorch";
   inputs = rec {
     flake-utils.url = "github:numtide/flake-utils/v1.0.0";
-    nixos.url = "github:NixOS/nixpkgs/23.11";
+    nixos.url = "github:NixOS/nixpkgs/24.05";
     pythoneda-shared-pythonlang-application = {
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixos.follows = "nixos";
@@ -229,17 +229,7 @@
           };
       in rec {
         apps = rec {
-          default = rydnr-basics-pytorch-default;
-          rydnr-basics-pytorch-default = rydnr-basics-pytorch-python310-cuda;
-          rydnr-basics-pytorch-python38 = shared.app-for {
-            package = self.packages.${system}.rydnr-basics-pytorch-python38;
-            inherit entrypoint;
-          };
-          rydnr-basics-pytorch-python38-cuda = shared.app-for {
-            package =
-              self.packages.${system}.rydnr-basics-pytorch-python38-cuda;
-            inherit entrypoint;
-          };
+          default = rydnr-basics-pytorch-python310-cuda;
           rydnr-basics-pytorch-python39 = shared.app-for {
             package = self.packages.${system}.rydnr-basics-pytorch-python39;
             inherit entrypoint;
@@ -258,38 +248,38 @@
               self.packages.${system}.rydnr-basics-pytorch-python310-cuda;
             inherit entrypoint;
           };
+          rydnr-basics-pytorch-python311 = shared.app-for {
+            package = self.packages.${system}.rydnr-basics-pytorch-python311;
+            inherit entrypoint;
+          };
+          rydnr-basics-pytorch-python311-cuda = shared.app-for {
+            package =
+              self.packages.${system}.rydnr-basics-pytorch-python311-cuda;
+            inherit entrypoint;
+          };
+          rydnr-basics-pytorch-python312 = shared.app-for {
+            package = self.packages.${system}.rydnr-basics-pytorch-python312;
+            inherit entrypoint;
+          };
+          rydnr-basics-pytorch-python312-cuda = shared.app-for {
+            package =
+              self.packages.${system}.rydnr-basics-pytorch-python312-cuda;
+            inherit entrypoint;
+          };
+          rydnr-basics-pytorch-python313 = shared.app-for {
+            package = self.packages.${system}.rydnr-basics-pytorch-python313;
+            inherit entrypoint;
+          };
+          rydnr-basics-pytorch-python313-cuda = shared.app-for {
+            package =
+              self.packages.${system}.rydnr-basics-pytorch-python313-cuda;
+            inherit entrypoint;
+          };
         };
         defaultApp = apps.default;
         defaultPackage = packages.default;
         devShells = rec {
-          default = rydnr-basics-pytorch-default;
-          rydnr-basics-pytorch-default = rydnr-basics-pytorch-python310-cuda;
-          rydnr-basics-pytorch-python38 = shared.devShell-for {
-            banner = "${packages.rydnr-basics-pytorch-python38}/bin/banner.sh";
-            extra-namespaces = "rydnr";
-            nixpkgs-release = nixpkgsRelease;
-            package = packages.rydnr-basics-pytorch-python38;
-            pkgs = pkgsNonCuda;
-            pythoneda-shared-pythonlang-banner =
-              pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python38;
-            pythoneda-shared-pythonlang-domain =
-              pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python38;
-            python = pkgs.python38;
-            inherit archRole layer org repo space;
-          };
-          rydnr-basics-pytorch-python38-cuda = shared.devShell-for {
-            banner =
-              "${packages.rydnr-basics-pytorch-python38-cuda}/bin/banner.sh";
-            extra-namespaces = "rydnr";
-            nixpkgs-release = nixpkgsRelease;
-            package = packages.rydnr-basics-pytorch-python38-cuda;
-            pythoneda-shared-pythonlang-banner =
-              pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python38;
-            pythoneda-shared-pythonlang-domain =
-              pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python38;
-            python = pkgs.python38;
-            inherit archRole layer org pkgs repo space;
-          };
+          default = rydnr-basics-pytorch-python310-cuda;
           rydnr-basics-pytorch-python39 = shared.devShell-for {
             banner = "${packages.rydnr-basics-pytorch-python39}/bin/banner.sh";
             extra-namespaces = "rydnr";
@@ -340,42 +330,84 @@
             python = pkgs.python310;
             inherit archRole layer org pkgs repo space;
           };
+          rydnr-basics-pytorch-python311 = shared.devShell-for {
+            banner = "${packages.rydnr-basics-pytorch-python311}/bin/banner.sh";
+            extra-namespaces = "rydnr";
+            nixpkgs-release = nixpkgsRelease;
+            package = packages.rydnr-basics-pytorch-python311;
+            pythoneda-shared-pythonlang-banner =
+              pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python311;
+            pythoneda-shared-pythonlang-domain =
+              pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python311;
+            python = pkgsNonCuda.python311;
+            inherit archRole layer org pkgs repo space;
+          };
+          rydnr-basics-pytorch-python311-cuda = shared.devShell-for {
+            banner =
+              "${packages.rydnr-basics-pytorch-python311-cuda}/bin/banner.sh";
+            extra-namespaces = "rydnr";
+            nixpkgs-release = nixpkgsRelease;
+            package = packages.rydnr-basics-pytorch-python311-cuda;
+            pythoneda-shared-pythonlang-banner =
+              pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python311;
+            pythoneda-shared-pythonlang-domain =
+              pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python311;
+            python = pkgs.python311;
+            inherit archRole layer org pkgs repo space;
+          };
+          rydnr-basics-pytorch-python312 = shared.devShell-for {
+            banner = "${packages.rydnr-basics-pytorch-python312}/bin/banner.sh";
+            extra-namespaces = "rydnr";
+            nixpkgs-release = nixpkgsRelease;
+            package = packages.rydnr-basics-pytorch-python312;
+            pythoneda-shared-pythonlang-banner =
+              pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python312;
+            pythoneda-shared-pythonlang-domain =
+              pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python312;
+            python = pkgsNonCuda.python312;
+            inherit archRole layer org pkgs repo space;
+          };
+          rydnr-basics-pytorch-python312-cuda = shared.devShell-for {
+            banner =
+              "${packages.rydnr-basics-pytorch-python312-cuda}/bin/banner.sh";
+            extra-namespaces = "rydnr";
+            nixpkgs-release = nixpkgsRelease;
+            package = packages.rydnr-basics-pytorch-python312-cuda;
+            pythoneda-shared-pythonlang-banner =
+              pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python312;
+            pythoneda-shared-pythonlang-domain =
+              pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python312;
+            python = pkgs.python312;
+            inherit archRole layer org pkgs repo space;
+          };
+          rydnr-basics-pytorch-python313 = shared.devShell-for {
+            banner = "${packages.rydnr-basics-pytorch-python313}/bin/banner.sh";
+            extra-namespaces = "rydnr";
+            nixpkgs-release = nixpkgsRelease;
+            package = packages.rydnr-basics-pytorch-python313;
+            pythoneda-shared-pythonlang-banner =
+              pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python313;
+            pythoneda-shared-pythonlang-domain =
+              pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python313;
+            python = pkgsNonCuda.python313;
+            inherit archRole layer org pkgs repo space;
+          };
+          rydnr-basics-pytorch-python313-cuda = shared.devShell-for {
+            banner =
+              "${packages.rydnr-basics-pytorch-python313-cuda}/bin/banner.sh";
+            extra-namespaces = "rydnr";
+            nixpkgs-release = nixpkgsRelease;
+            package = packages.rydnr-basics-pytorch-python313-cuda;
+            pythoneda-shared-pythonlang-banner =
+              pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python313;
+            pythoneda-shared-pythonlang-domain =
+              pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python313;
+            python = pkgs.python310;
+            inherit archRole layer org pkgs repo space;
+          };
         };
         packages = rec {
-          default = rydnr-basics-pytorch-default;
-          rydnr-basics-pytorch-default = rydnr-basics-pytorch-python310-cuda;
-          rydnr-basics-pytorch-python38 = rydnr-basics-pytorch-for {
-            cuda-support = false;
-            python = pkgs.python38;
-            pythoneda-shared-pythonlang-application =
-              pythoneda-shared-pythonlang-application.packages.${system}.pythoneda-shared-pythonlang-application-python38;
-            pythoneda-shared-pythonlang-banner =
-              pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python38;
-            pythoneda-shared-pythonlang-domain =
-              pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python38;
-            rydnr-nix-flakes-pytorch =
-              rydnr-nix-flakes-pytorch.packages.${system}.rydnr-nix-flakes-pytorch-python38;
-            rydnr-nix-flakes-torchaudio =
-              rydnr-nix-flakes-torchaudio.packages.${system}.rydnr-nix-flakes-torchaudio-python38;
-            rydnr-nix-flakes-torchvision =
-              rydnr-nix-flakes-torchvision.packages.${system}.rydnr-nix-flakes-torchvision-python38;
-          };
-          rydnr-basics-pytorch-python38-cuda = rydnr-basics-pytorch-for {
-            cuda-support = true;
-            python = pkgs.python38;
-            pythoneda-shared-pythonlang-application =
-              pythoneda-shared-pythonlang-application.packages.${system}.pythoneda-shared-pythonlang-application-python38;
-            pythoneda-shared-pythonlang-banner =
-              pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python38;
-            pythoneda-shared-pythonlang-domain =
-              pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python38;
-            rydnr-nix-flakes-pytorch =
-              rydnr-nix-flakes-pytorch.packages.${system}.rydnr-nix-flakes-pytorch-python38-cuda;
-            rydnr-nix-flakes-torchaudio =
-              rydnr-nix-flakes-torchaudio.packages.${system}.rydnr-nix-flakes-torchaudio-python38-cuda;
-            rydnr-nix-flakes-torchvision =
-              rydnr-nix-flakes-torchvision.packages.${system}.rydnr-nix-flakes-torchvision-python38-cuda;
-          };
+          default = rydnr-basics-pytorch-python310-cuda;
           rydnr-basics-pytorch-python39 = rydnr-basics-pytorch-for {
             cuda-support = false;
             python = pkgs.python39;
@@ -439,6 +471,102 @@
               rydnr-nix-flakes-torchaudio.packages.${system}.rydnr-nix-flakes-torchaudio-python310-cuda;
             rydnr-nix-flakes-torchvision =
               rydnr-nix-flakes-torchvision.packages.${system}.rydnr-nix-flakes-torchvision-python310-cuda;
+          };
+          rydnr-basics-pytorch-python311 = rydnr-basics-pytorch-for {
+            cuda-support = false;
+            python = pkgs.python311;
+            pythoneda-shared-pythonlang-application =
+              pythoneda-shared-pythonlang-application.packages.${system}.pythoneda-shared-pythonlang-application-python311;
+            pythoneda-shared-pythonlang-banner =
+              pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python311;
+            pythoneda-shared-pythonlang-domain =
+              pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python311;
+            rydnr-nix-flakes-pytorch =
+              rydnr-nix-flakes-pytorch.packages.${system}.rydnr-nix-flakes-pytorch-python311;
+            rydnr-nix-flakes-torchaudio =
+              rydnr-nix-flakes-torchaudio.packages.${system}.rydnr-nix-flakes-torchaudio-python311;
+            rydnr-nix-flakes-torchvision =
+              rydnr-nix-flakes-torchvision.packages.${system}.rydnr-nix-flakes-torchvision-python311;
+          };
+          rydnr-basics-pytorch-python311-cuda = rydnr-basics-pytorch-for {
+            cuda-support = true;
+            python = pkgs.python311;
+            pythoneda-shared-pythonlang-application =
+              pythoneda-shared-pythonlang-application.packages.${system}.pythoneda-shared-pythonlang-application-python311;
+            pythoneda-shared-pythonlang-banner =
+              pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python311;
+            pythoneda-shared-pythonlang-domain =
+              pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python311;
+            rydnr-nix-flakes-pytorch =
+              rydnr-nix-flakes-pytorch.packages.${system}.rydnr-nix-flakes-pytorch-python311-cuda;
+            rydnr-nix-flakes-torchaudio =
+              rydnr-nix-flakes-torchaudio.packages.${system}.rydnr-nix-flakes-torchaudio-python311-cuda;
+            rydnr-nix-flakes-torchvision =
+              rydnr-nix-flakes-torchvision.packages.${system}.rydnr-nix-flakes-torchvision-python311-cuda;
+          };
+          rydnr-basics-pytorch-python312 = rydnr-basics-pytorch-for {
+            cuda-support = false;
+            python = pkgs.python312;
+            pythoneda-shared-pythonlang-application =
+              pythoneda-shared-pythonlang-application.packages.${system}.pythoneda-shared-pythonlang-application-python312;
+            pythoneda-shared-pythonlang-banner =
+              pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python312;
+            pythoneda-shared-pythonlang-domain =
+              pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python312;
+            rydnr-nix-flakes-pytorch =
+              rydnr-nix-flakes-pytorch.packages.${system}.rydnr-nix-flakes-pytorch-python312;
+            rydnr-nix-flakes-torchaudio =
+              rydnr-nix-flakes-torchaudio.packages.${system}.rydnr-nix-flakes-torchaudio-python312;
+            rydnr-nix-flakes-torchvision =
+              rydnr-nix-flakes-torchvision.packages.${system}.rydnr-nix-flakes-torchvision-python312;
+          };
+          rydnr-basics-pytorch-python312-cuda = rydnr-basics-pytorch-for {
+            cuda-support = true;
+            python = pkgs.python312;
+            pythoneda-shared-pythonlang-application =
+              pythoneda-shared-pythonlang-application.packages.${system}.pythoneda-shared-pythonlang-application-python312;
+            pythoneda-shared-pythonlang-banner =
+              pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python312;
+            pythoneda-shared-pythonlang-domain =
+              pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python312;
+            rydnr-nix-flakes-pytorch =
+              rydnr-nix-flakes-pytorch.packages.${system}.rydnr-nix-flakes-pytorch-python312-cuda;
+            rydnr-nix-flakes-torchaudio =
+              rydnr-nix-flakes-torchaudio.packages.${system}.rydnr-nix-flakes-torchaudio-python312-cuda;
+            rydnr-nix-flakes-torchvision =
+              rydnr-nix-flakes-torchvision.packages.${system}.rydnr-nix-flakes-torchvision-python312-cuda;
+          };
+          rydnr-basics-pytorch-python313 = rydnr-basics-pytorch-for {
+            cuda-support = false;
+            python = pkgs.python313;
+            pythoneda-shared-pythonlang-application =
+              pythoneda-shared-pythonlang-application.packages.${system}.pythoneda-shared-pythonlang-application-python313;
+            pythoneda-shared-pythonlang-banner =
+              pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python313;
+            pythoneda-shared-pythonlang-domain =
+              pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python313;
+            rydnr-nix-flakes-pytorch =
+              rydnr-nix-flakes-pytorch.packages.${system}.rydnr-nix-flakes-pytorch-python313;
+            rydnr-nix-flakes-torchaudio =
+              rydnr-nix-flakes-torchaudio.packages.${system}.rydnr-nix-flakes-torchaudio-python313;
+            rydnr-nix-flakes-torchvision =
+              rydnr-nix-flakes-torchvision.packages.${system}.rydnr-nix-flakes-torchvision-python313;
+          };
+          rydnr-basics-pytorch-python313-cuda = rydnr-basics-pytorch-for {
+            cuda-support = true;
+            python = pkgs.python313;
+            pythoneda-shared-pythonlang-application =
+              pythoneda-shared-pythonlang-application.packages.${system}.pythoneda-shared-pythonlang-application-python313;
+            pythoneda-shared-pythonlang-banner =
+              pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python313;
+            pythoneda-shared-pythonlang-domain =
+              pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python313;
+            rydnr-nix-flakes-pytorch =
+              rydnr-nix-flakes-pytorch.packages.${system}.rydnr-nix-flakes-pytorch-python313-cuda;
+            rydnr-nix-flakes-torchaudio =
+              rydnr-nix-flakes-torchaudio.packages.${system}.rydnr-nix-flakes-torchaudio-python313-cuda;
+            rydnr-nix-flakes-torchvision =
+              rydnr-nix-flakes-torchvision.packages.${system}.rydnr-nix-flakes-torchvision-python313-cuda;
           };
         };
       });
